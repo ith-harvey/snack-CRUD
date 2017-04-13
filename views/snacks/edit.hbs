@@ -1,7 +1,10 @@
 <h1>Edit this snack</h1>
 <div>
-  <p>{{snack.expiration_date}}</p>
+  <p>{{snack.id}}</p>
 </div>
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
 <form action='/snacks/{{snack.id}}?_method=PUT'  method='POST'>
   <label>Name: <input type="text" name="name" value="{{snack.name}}"> </label>
   <label>Company: <input type="text" name="creator_company" value="{{snack.creator_company}}"> </label>

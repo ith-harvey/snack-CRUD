@@ -54,9 +54,19 @@ router.get('/edit/:id', function(req, res, next) {
       creator_company: req.body.creator_company,
       img_url: req.body.img_url
     }
-      db('snacks').update(snack).where({id: req.params.id}).then( () => {
-        res.redirect('/snacks');
+    if (snack.my_rating > 10 || snack.my_rating < 0) {
+      snack.id = req.params.id
+      console.log(snack.id);
+      console.log(req.params.id);
+      res.render('snacks/edit', { error: 'Rating is not valid. Please provide a number between 0 and 10',
+      snack
       })
+    } else {
+
+        db('snacks').update(snack).where({id: req.params.id}).then( () => {
+          res.redirect('/snacks');
+        })
+      }
     })
 
 router.get('/:id', function(req, res, next) {
