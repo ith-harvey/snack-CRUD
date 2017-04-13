@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-    <h3>Is your snack not here?</h3>
-    <h2><a href="/snacks/new">Create a snack</a></h2>
-    {{#each snacks}}
-    <h2><a href="/snacks/{{this.id}}">{{this.name}}</a></h2>
-    <h3>Company : {{this.creator_company}}</h3>
-    <p>Experation : {{this.experation_date}}</p>
-    <p>Rating : {{this.my_rating}}</p>
-    <img class='snack-img' src="{{this.img_url}}">
-    {{/each}}
+  <h3>Is your snack not here?</h3>
+  <h2><a href="/snacks/new">Create a snack</a></h2>
+  {{#each snacks}}
+  <h2><a href="/snacks/{{this.id}}">{{this.name}}</a></h2>
+  <h3>Company : {{this.creator_company}}</h3>
+  <p>Expiration : {{this.expiration_date}}</p>
+  <p>Rating : {{this.my_rating}}</p>
+  <img class='snack-img' src="{{this.img_url}}">
+  <form action="/snacks/{{this.id}}?_method=DELETE" method="POST"> <input type="submit" value="delete"></form>
+  {{/each}}

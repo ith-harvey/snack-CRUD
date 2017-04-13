@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-    {{#each snacks}}
-    <h2><a href="/snacks/{{this.id}}">{{this.name}}</a></h2>
-    <h3>Company : {{this.creator_company}}</h3>
-    <p>Experation : {{this.experation_date}}</p>
-    <p>Rating : {{this.my_rating}}</p>
-    <img class='snack-img' src="{{this.img_url}}">
-    {{/each}}
+{{#each snacks}}
+<h2><a href="/snacks/{{this.id}}">{{this.name}}</a></h2>
+<h3>Company : {{this.creator_company}}</h3>
+<p>Experation : {{this.experation_date}}</p>
+<p>Rating : {{this.my_rating}}</p>
+<img class='snack-img' src="{{this.img_url}}">
+{{/each}}

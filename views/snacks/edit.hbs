@@ -1,0 +1,12 @@
+<h1>Edit this snack</h1>
+<div>
+  <p>{{snack.expiration_date}}</p>
+</div>
+<form action='/snacks/{{snack.id}}?_method=PUT'  method='POST'>
+  <label>Name: <input type="text" name="name" value="{{snack.name}}"> </label>
+  <label>Company: <input type="text" name="creator_company" value="{{snack.creator_company}}"> </label>
+  <label>Expiration Date: <input type="date" name="expiration_date" value="{{snack.expiration_date}}"> </label>
+  <label>Rating: <input type="number" name="my_rating" value="{{snack.my_rating}}"> </label>
+  <label>Snack's image url:<input type="text" name="img_url" value="{{snack.img_url}}"> </label>
+  <input type="submit" value="Add this snack">
+</form>

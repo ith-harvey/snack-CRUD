@@ -8,15 +8,22 @@ var hbs = require('hbs')
 
 var index = require('./routes/index');
 var snacks = require('./routes/snacks');
+var methodOverride = require('method-override')
 
 var app = express();
 
+
+console.log(path.join(__dirname,'partials'));
+
+hbs.registerPartials(__dirname + '/views/partials')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(methodOverride('_method'))
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
